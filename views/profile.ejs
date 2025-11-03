@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <% if (user.profilePic) { %>
+      <img src="/uploads/<%= user.profilePic %>" class="rounded-circle mb-3" width="120" alt="Profile Picture">
+    <% } else { %>
+      <img src="/images/default-profile.png" class="rounded-circle mb-3" width="120" alt="Default Profile Picture">
+    <% } %>
+
+    <h4><%= user.fullname %></h4>
+    <% if (user.verified) { %>
+      <span class="badge bg-success">Verified</span>
+    <% } %>
+    <p class="mt-2"><%= user.email %></p>
+
+    <!-- Profile Picture Upload Form -->
+    <form action="/profile/update-profile" method="POST" enctype="multipart/form-data" class="mt-3">
+      <div class="mb-2">
+        <input type="file" name="profilePic" class="form-control" accept="image/*" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Update Profile Picture</button>
+    </form>
+  </div>
+
+  <div class="col-md-8">
+    <h5>Uploaded Media</h5>
+    <div class="row">
+      <% media.forEach(file => { %>
+        <div class="col-md-4 mb-3">
+          <img src="/uploads/<%= file %>" class="img-fluid rounded" alt="Uploaded Media">
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

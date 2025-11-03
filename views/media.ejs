@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<h3>Media Preview</h3>
+<div class="row">
+  <% media.forEach(file => { %>
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <img src="/uploads/<%= file %>" class="card-img-top" alt="Media">
+      </div>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h3>Campaign Analytics</h3>
+<div class="row">
+  <div class="col-md-6">
+    <canvas id="fundingChart"></canvas>
+  </div>
+  <div class="col-md-6">
+    <ul class="list-group">
+      <li class="list-group-item">Number of Investments: <strong><%= stats.count %></strong></li>
+      <li class="list-group-item">Success Rate: <strong><%= stats.successRate %>%</strong></li>
+      <li class="list-group-item">Funding Progress: <strong>₹<%= stats.totalFunded %> / ₹<%= stats.goal %></strong></li>
+    </ul>
+  </div>
+</div>
+<%- include('partials/footer') %>

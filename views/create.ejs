@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+<h3>Create a Campaign</h3>
+<form action="/creator/create" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <input type="text" name="title" class="form-control" placeholder="Campaign Title" required>
+  </div>
+  <div class="mb-3">
+    <textarea name="description" class="form-control" placeholder="Description" rows="4" required></textarea>
+  </div>
+  <div class="mb-3">
+    <input type="number" name="goalAmount" class="form-control" placeholder="Goal Amount (₹)" required>
+  </div>
+  <div class="mb-3">
+    <input type="file" name="media" class="form-control" multiple>
+  </div>
+  <button type="submit" class="btn btn-success">Create Campaign</button>
+</form>
+<%- include('partials/footer') %>

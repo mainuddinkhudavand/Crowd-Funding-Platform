@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <h2><%= campaign.title %></h2>
+
+  <!-- Campaign Images -->
+  <div class="row mb-3">
+    <% campaign.media.forEach(img => { %>
+      <div class="col-6 col-md-4 mb-3">
+        <img src="/uploads/<%= img %>" class="img-thumbnail" style="max-width: 250px; height: auto;" alt="Campaign Image">
+      </div>
+    <% }) %>
+  </div>
+
+  <p><%= campaign.description %></p>
+  <p><strong>Goal:</strong> ₹<%= campaign.goalAmount %></p>
+  <p><strong>Raised:</strong> ₹<%= raisedAmount %></p>
+
+  <!-- Investment Form -->
+  <form action="/campaign/<%= campaign._id %>/invest" method="POST" class="mt-4">
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount to Invest</label>
+      <input type="number" name="amount" class="form-control" min="1" required>
+    </div>
+    <button type="submit" class="btn btn-success">Invest Now</button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>
